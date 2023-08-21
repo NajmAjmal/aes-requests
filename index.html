@@ -75,12 +75,42 @@
         }
     </style>
 </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AES Encryption and Decryption Tool - Encrypt and decrypt sensitive data using AES encryption algorithm. Protect your data with strong cryptography.">
+    <meta name="keywords" content="AES Requests, AES, Encryption, Decryption, CryptoJS, Data Protection, Cryptography, Security">
+    <meta name="author" content="Najm Ajmal">
+    <title>AES Encryption and Decryption</title>
+    <style>
+        /* ... Your CSS styles ... */
+        button {
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 15px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
 <body>
     <div class="container">
         <h1 style="color: #3498db;">AES Data Retrieval</h1>
         <div class="input-container">
+            <label for="textInput">Text:</label>
             <input type="text" id="textInput" placeholder="Enter Text">
-            <input type="text" id="passwordInput" placeholder="Enter Password">
+            <label for="passwordInput">Password:</label>
+            <input type="password" id="passwordInput" placeholder="Enter Password">
         </div>
         <div class="button-container">
             <button id="encryptButton">Encrypt</button>
