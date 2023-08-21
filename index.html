@@ -26,18 +26,16 @@
         }
 
         .input-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             margin-bottom: 15px;
             width: 100%;
         }
 
         input {
-            width: 45%;
+            width: 100%;
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
 
         button {
@@ -48,7 +46,7 @@
             cursor: pointer;
             font-size: 16px;
             padding: 10px 15px;
-            width: 45%;
+            width: 100%;
         }
 
         button:hover {
@@ -66,6 +64,8 @@
         <h1 style="color: #3498db;">AES Data Encryption</h1>
         <div class="input-container">
             <input type="text" id="textInput" placeholder="Enter text">
+        </div>
+        <div class="input-container">
             <input type="password" id="passwordInput" placeholder="Enter password">
         </div>
         <div class="input-container">
