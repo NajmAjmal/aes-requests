@@ -19,7 +19,25 @@
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 300px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        input {
+            width: 45%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
         button {
@@ -30,8 +48,7 @@
             cursor: pointer;
             font-size: 16px;
             padding: 10px 15px;
-            margin-top: 10px;
-            width: 100%;
+            width: 45%;
         }
 
         button:hover {
@@ -46,9 +63,15 @@
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center; color: #3498db;">AES Data Encryption</h1>
-        <button id="encryptButton">Encrypt Data</button>
-        <button id="decryptButton">Decrypt Data</button>
+        <h1 style="color: #3498db;">AES Data Encryption</h1>
+        <div class="input-container">
+            <input type="text" id="textInput" placeholder="Enter text">
+            <input type="password" id="passwordInput" placeholder="Enter password">
+        </div>
+        <div class="input-container">
+            <button id="encryptButton">Encrypt</button>
+            <button id="decryptButton">Decrypt</button>
+        </div>
         <div id="result"></div>
     </div>
     <script>
@@ -75,14 +98,14 @@
         }
 
         document.getElementById('encryptButton').addEventListener('click', () => {
-            const text = prompt('Enter the text to encrypt:');
-            const password = prompt('Enter the password for encryption:');
+            const text = document.getElementById('textInput').value;
+            const password = document.getElementById('passwordInput').value;
             sendData('encrypt', text, password);
         });
 
         document.getElementById('decryptButton').addEventListener('click', () => {
-            const text = prompt('Enter the encrypted text to decrypt:');
-            const password = prompt('Enter the password for decryption:');
+            const text = document.getElementById('textInput').value;
+            const password = document.getElementById('passwordInput').value;
             sendData('decrypt', text, password);
         });
     </script>
