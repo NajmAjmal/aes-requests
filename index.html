@@ -38,6 +38,12 @@
             margin-bottom: 10px;
         }
 
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
         button {
             background-color: #3498db;
             border: none;
@@ -46,7 +52,7 @@
             cursor: pointer;
             font-size: 16px;
             padding: 10px 15px;
-            width: 100%;
+            width: 48%; /* Adjust button width */
         }
 
         button:hover {
@@ -68,7 +74,7 @@
         <div class="input-container">
             <input type="password" id="passwordInput" placeholder="Enter password">
         </div>
-        <div class="input-container">
+        <div class="button-container">
             <button id="encryptButton">Encrypt</button>
             <button id="decryptButton">Decrypt</button>
         </div>
