@@ -122,23 +122,19 @@
         </div>
     </div>
     <script>
-        function updateIframeContent(url) {
-            const iframe = document.getElementById('resultIframe');
-            iframe.src = url;
-        }
-
-        document.getElementById('encryptButton').addEventListener('click', () => {
+        document.getElementById('submitButton').addEventListener('click', () => {
             const text = document.getElementById('textInput').value;
             const password = document.getElementById('passwordInput').value;
-            const encryptedUrl = `https://najmajmal.github.io/aes/index.html?action=encrypt&text="${text}"&password="${password}"`;
-            updateIframeContent(encryptedUrl);
-        });
+            const action = document.querySelector('input[name="action"]:checked').value;
 
-        document.getElementById('decryptButton').addEventListener('click', () => {
-            const text = document.getElementById('textInput').value;
-            const password = document.getElementById('passwordInput').value;
-            const decryptedUrl = `https://najmajmal.github.io/aes/index.html?action=decrypt&text="${text}"&password="${password}"`;
-            updateIframeContent(decryptedUrl);
+            let url;
+            if (action === 'encrypt') {
+                url = `https://najmajmal.github.io/aes/index.html?action=encrypt&text="${text}"&password="${password}"`;
+            } else if (action === 'decrypt') {
+                url = `https://najmajmal.github.io/aes/index.html?action=decrypt&text="${text}"&password="${password}"`;
+            }
+
+            updateIframeContent(url);
         });
     </script>
 </body>
