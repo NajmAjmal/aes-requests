@@ -3,11 +3,54 @@
 <head>
     <meta charset="utf-8">
     <title>Request Data from AES Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f7f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+
+        button {
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px 15px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <button id="encryptButton">Encrypt Data</button>
-    <button id="decryptButton">Decrypt Data</button>
-    <div id="result"></div>
+    <div class="container">
+        <h1 style="text-align: center; color: #3498db;">AES Data Encryption</h1>
+        <button id="encryptButton">Encrypt Data</button>
+        <button id="decryptButton">Decrypt Data</button>
+        <div id="result"></div>
+    </div>
     <script>
         const baseUrl = "https://najmajmal.github.io/aes/index.html";
 
