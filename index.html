@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Request Data from AES Website</title>
+</head>
+<body>
+    <button id="encryptButton">Encrypt Data</button>
+    <button id="decryptButton">Decrypt Data</button>
+    <div id="result"></div>
+    <script>
+        const baseUrl = "https://najmajmal.github.io/aes/index.html";
+
+        function displayResult(resultText) {
+            document.getElementById('result').textContent = resultText;
+        }
+
+        function sendData(action, text, password) {
+            const url = new URL(baseUrl);
+            url.searchParams.append('action', action);
+            url.searchParams.append('text', text);
+            url.searchParams.append('password', password);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    displayResult(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        document.getElementById('encryptButton').addEventListener('click', () => {
+            const text = prompt('Enter the text to encrypt:');
+            const password = prompt('Enter the password for encryption:');
+            sendData('encrypt', text, password);
+        });
+
+        document.getElementById('decryptButton').addEventListener('click', () => {
+            const text = prompt('Enter the encrypted text to decrypt:');
+            const password = prompt('Enter the password for decryption:');
+            sendData('decrypt', text, password);
+        });
+    </script>
+</body>
+</html>
