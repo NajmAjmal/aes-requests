@@ -111,14 +111,14 @@
         document.getElementById('encryptButton').addEventListener('click', () => {
             const text = document.getElementById('textInput').value;
             const password = document.getElementById('passwordInput').value;
-            const encryptedUrl = `https://najmajmal.github.io/aes/index.html?action=encrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
+            const encryptedUrl = `https://http://aes.najm.uk?action=encrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
             updateIframeContent(encryptedUrl);
         });
 
         document.getElementById('decryptButton').addEventListener('click', () => {
             const text = document.getElementById('textInput').value;
             const password = document.getElementById('passwordInput').value;
-            const decryptedUrl = `https://najmajmal.github.io/aes/index.html?action=decrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
+            const decryptedUrl = `https://http://aes.najm.uk?action=decrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
             updateIframeContent(decryptedUrl);
         });
 
