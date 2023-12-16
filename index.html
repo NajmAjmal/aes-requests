@@ -3,122 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AES Encryption and Decryption Tool - Encrypt and decrypt sensitive data using AES encryption algorithm. Protect your data with strong cryptography.">
-    <meta name="keywords" content="AES Requests, AES, Encryption, Decryption, CryptoJS, Data Protection, Cryptography, Security">
-    <meta name="author" content="Najm Ajmal">
-    <title>AES Encryption and Decryption</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f7f9;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            padding: 0;
         }
 
         .container {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
-            width: 90%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
         }
 
         .input-container {
-            margin-bottom: 15px;
-            width: 100%;
+            margin-top: 20px;
         }
 
         label {
-            font-weight: bold;
+            display: block;
             margin-bottom: 5px;
         }
 
         input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 8px;
             margin-bottom: 10px;
-        }
-
-        .button-container {
-            width: 100%;
-            text-align: center;
+            box-sizing: border-box;
         }
 
         button {
-            background-color: #3498db;
-            border: none;
-            border-radius: 5px;
-            color: #ffffff;
-            cursor: pointer;
+            padding: 8px 12px;
+            margin-top: 10px;
             font-size: 16px;
-            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        #resultIframe {
             width: 100%;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #2980b9;
-        }
-
-        #result {
-            margin-top: 20px;
-            text-align: center;
-            width: 100%;
-            min-height: 100px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            overflow: auto;
-            padding: 10px;
-        }
-
-        /* Add mobile and multi-platform support styles */
-
-        @media screen and (max-width: 768px) {
-            .container {
-                width: 95%; /* Slightly adjust the width for mobile screens */
-                margin-top: 5px; /* Push container away from the top */
-            }
+            height: 300px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
     </style>
+    <title>AES Encryption and Decryption Tool</title>
 </head>
 <body>
     <div class="container">
-        <h1 style="color: #3498db;">AES Data Retrieval</h1>
+        <h1>AES Encryption and Decryption Tool</h1>
         <div class="input-container">
             <label for="textInput">Text:</label>
-            <input type="text" id="textInput" placeholder="Enter Text">
+            <input type="text" id="textInput" placeholder="Enter text">
             <label for="passwordInput">Password:</label>
-            <input type="password" id="passwordInput" placeholder="Enter Password">
-        </div>
-        <div class="button-container">
+            <input type="password" id="passwordInput" placeholder="Enter password">
             <button id="encryptButton">Encrypt</button>
             <button id="decryptButton">Decrypt</button>
         </div>
-        <div id="result">
-            <iframe id="resultIframe" title="AES Encryption/Decryption Result" frameborder="0" style="width: 100%; height: 100%;"></iframe>
-        </div>
+        
+        <iframe id="resultIframe" frameborder="0"></iframe>
     </div>
+
     <script>
         document.getElementById('encryptButton').addEventListener('click', () => {
-            const text = document.getElementById('textInput').value;
-            const password = document.getElementById('passwordInput').value;
-            const encryptedUrl = `http://aes.najm.uk?action=encrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
+            const text = encodeURIComponent(document.getElementById('textInput').value);
+            const password = encodeURIComponent(document.getElementById('passwordInput').value);
+            const encryptedUrl = `http://aes.najm.uk?action=encrypt&text="${text}"&password="${password}"`;
             updateIframeContent(encryptedUrl);
         });
 
         document.getElementById('decryptButton').addEventListener('click', () => {
-            const text = document.getElementById('textInput').value;
-            const password = document.getElementById('passwordInput').value;
-            const decryptedUrl = `http://aes.najm.uk?action=decrypt&text="${encodeURIComponent(text)}"&password="${encodeURIComponent(password)}"`;
+            const text = encodeURIComponent(document.getElementById('textInput').value);
+            const password = encodeURIComponent(document.getElementById('passwordInput').value);
+            const decryptedUrl = `http://aes.najm.uk?action=decrypt&text="${text}"&password="${password}"`;
             updateIframeContent(decryptedUrl);
         });
 
